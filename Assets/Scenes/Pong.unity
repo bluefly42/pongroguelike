@@ -362,6 +362,7 @@ GameObject:
   - component: {fileID: 1294762501}
   - component: {fileID: 1294762500}
   - component: {fileID: 1294762499}
+  - component: {fileID: 1294762503}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Untagged
@@ -508,6 +509,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1294762503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1294762498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fed83287d29b4b84aa5e2db60cbdf9bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 100
 --- !u!1 &1597333121
 GameObject:
   m_ObjectHideFlags: 0
@@ -587,7 +601,7 @@ Rigidbody2D:
   m_Mass: 0.5
   m_LinearDrag: 2
   m_AngularDrag: 0
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -755,6 +769,7 @@ GameObject:
   - component: {fileID: 1675990522}
   - component: {fileID: 1675990521}
   - component: {fileID: 1675990520}
+  - component: {fileID: 1675990524}
   m_Layer: 0
   m_Name: Player Paddle
   m_TagString: Untagged
@@ -822,7 +837,7 @@ Rigidbody2D:
   m_Mass: 0.5
   m_LinearDrag: 2
   m_AngularDrag: 0
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -901,6 +916,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1675990524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1675990519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c47470a8c8a01644b0ec076129b16af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
 --- !u!1 &1735718491
 GameObject:
   m_ObjectHideFlags: 0
