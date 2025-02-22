@@ -6,10 +6,12 @@ public class playerScores : MonoBehaviour
 {
     [SerializeField] int playerGoals;
     private Serve serveScript;
+    private Victory victoryScript;
     // Start is called before the first frame update
     void Start()
     {
-        serveScript = GameObject.Find("serve object").GetComponent<Serve>(); //link to the script Serve.cs to use later
+        serveScript = GameObject.Find("serve object").GetComponent<Serve>();
+        victoryScript = GameObject.Find("victory object").GetComponent<Victory>();//link to the script Serve.cs to use later
         playerGoals = 0;
     }
 
@@ -32,7 +34,6 @@ public class playerScores : MonoBehaviour
 
     IEnumerator DelayedServe(float delayTime, Collider2D ball) //coroutine to delay the serve
     {
-        Debug.Log("hello again");
         //Wait for the specified delay time before continuing.
         yield return new WaitForSeconds(delayTime);
         serveScript.StartServe("Computer");//serve to the cpu because they conceded

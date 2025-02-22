@@ -7,10 +7,12 @@ public class cpuScores : MonoBehaviour
 {
     [SerializeField] int cpuGoals;
     private Serve serveScript;
+    private Lose loseScript;
     // Start is called before the first frame update
     void Start()
     {
         serveScript = GameObject.Find("serve object").GetComponent<Serve>(); //link to the script Serve.cs to use later
+        loseScript = GameObject.Find("loss object").GetComponent<Lose>();
         cpuGoals = 0;
     }
 
@@ -22,18 +24,20 @@ public class cpuScores : MonoBehaviour
 
     private void CpuGoal(Collider2D collider)
     {
-
         if (collider.CompareTag("ball")) //check it is colliding with a ball
         {
             collider.gameObject.SetActive(false); //deactivate the ball until it is moved back to the centre
             cpuGoals += 1;//iterate cpu's goals
+            if(cpuGoals == 7)
+            {
+                loseScript.LoseScreen();
+            }
             StartCoroutine(DelayedServe(1f, collider)); //serve after a second
         }
     }
 
     IEnumerator DelayedServe(float delayTime, Collider2D ball) //coroutine to delay the serve
     {
-        Debug.Log("hello again");
         //Wait for the specified delay time before continuing.
         yield return new WaitForSeconds(delayTime);
         serveScript.StartServe("Player");//serve to the player because they conceded
