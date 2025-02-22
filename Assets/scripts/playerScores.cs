@@ -29,8 +29,16 @@ public class playerScores : MonoBehaviour
         {
             Destroy(collider.gameObject);
             playerGoals += 1;
-            new WaitForSeconds(1);
 
+            IEnumerator waitRoutine(int duration) //start a wait routine for a second
+            {
+                yield return new WaitForSeconds(duration);
+            }
+            Debug.Log("hello once");
+            StartCoroutine(waitRoutine(1)); //call wait
+            Debug.Log("hello twice");
+            //usesGetComponent to access the script Ball and use its Serve method
+            collider.gameObject.GetComponent<Ball>().Serve("Computer"); //if player scores then the computer gets the next serve
         }
     }
 }
