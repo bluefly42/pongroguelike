@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//push comment
 public class cpuScores : MonoBehaviour
 {
     [SerializeField] int cpuGoals;
@@ -14,14 +14,23 @@ public class cpuScores : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    private void onCollisionGoal(Collider other){
-        if (other.CompareTag("ball"))
+    //if the goal box is hit by the ball
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        CpuGoal(collision.collider);
+    }
+
+    private void CpuGoal(Collider2D collider)
+    {
+        if (collider.CompareTag("ball"))
         {
+            Destroy(collider.gameObject);
             cpuGoals += 1;
-            Debug.Log("goal");
+            new WaitForSeconds(1);
+
         }
     }
 }
