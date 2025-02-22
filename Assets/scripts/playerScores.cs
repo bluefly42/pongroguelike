@@ -14,17 +14,23 @@ public class playerScores : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    private void onCollisionGoal(Collider other){
-        if (other.CompareTag("ball"))
+    //if the goal box is hit by the ball
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        PlayerGoal(collision.collider);
+    }
+
+    private void PlayerGoal(Collider2D collider)
+    {
+        if (collider.CompareTag("ball"))
         {
-            Destroy(other);
+            Destroy(collider.gameObject);
             playerGoals += 1;
-            Debug.Log("Player goal.");
             new WaitForSeconds(1);
-            
+
         }
     }
 }
