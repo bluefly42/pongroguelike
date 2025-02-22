@@ -28,6 +28,10 @@ public class playerScores : MonoBehaviour
         {
             collider.gameObject.SetActive(false); //deactivate the ball until it is moved back to the centre
             playerGoals += 1;//iterate player's goals
+            if (playerGoals == 7)
+            {
+                victoryScript.NextVictoryScreen();
+            }
             StartCoroutine(DelayedServe(1f, collider)); //serve after a second
         }
     }
