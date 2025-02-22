@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class playerGoal : MonoBehaviour
+public class playerScores : MonoBehaviour
 {
     [SerializeField] int playerGoals;
     // Start is called before the first frame update
