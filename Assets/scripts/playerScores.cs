@@ -5,16 +5,12 @@ using UnityEngine;
 public class playerScores : MonoBehaviour
 {
     [SerializeField] int playerGoals;
+    private Serve serveScript;
     // Start is called before the first frame update
     void Start()
     {
+        serveScript = GameObject.Find("serve object").GetComponent<Serve>(); //link to the script Serve.cs to use later
         playerGoals = 0;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     //if the goal box is hit by the ball
@@ -25,20 +21,21 @@ public class playerScores : MonoBehaviour
 
     private void PlayerGoal(Collider2D collider)
     {
-        if (collider.CompareTag("ball"))
-        {
-            Destroy(collider.gameObject);
-            playerGoals += 1;
 
-            IEnumerator waitRoutine(int duration) //start a wait routine for a second
-            {
-                yield return new WaitForSeconds(duration);
-            }
-            Debug.Log("hello once");
-            StartCoroutine(waitRoutine(1)); //call wait
-            Debug.Log("hello twice");
-            //usesGetComponent to access the script Ball and use its Serve method
-            collider.gameObject.GetComponent<Ball>().Serve("Computer"); //if player scores then the computer gets the next serve
+        if (collider.CompareTag("ball")) //check it is colliding with a ball
+        {
+            collider.gameObject.SetActive(false); //deactivate the ball until it is moved back to the centre
+            playerGoals += 1;//iterate player's goals
+            StartCoroutine(DelayedServe(1f, collider)); //serve after a second
         }
     }
+
+    IEnumerator DelayedServe(float delayTime, Collider2D ball) //coroutine to delay the serve
+    {
+        Debug.Log("hello again");
+        //Wait for the specified delay time before continuing.
+        yield return new WaitForSeconds(delayTime);
+        serveScript.StartServe("Computer");//serve to the cpu because they conceded
+    }
 }
+
