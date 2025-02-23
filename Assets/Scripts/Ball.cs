@@ -3,8 +3,7 @@ using UnityEngine;
 public class Ball : MonoBehaviour
 {
     public float speed = 250.0f;
-    [SerializeField] private Rigidbody2D ball;
-    private Serve serveScript; //moved serving over to another script
+    [SerializeField] private Rigidbody2D ball; //moved serving over to another script
 
     private void Awake()
     {

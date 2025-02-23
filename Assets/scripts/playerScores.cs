@@ -3,16 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class playerScores : MonoBehaviour
-{
-    [SerializeField] int playerGoals;
+{ 
     private Serve serveScript;
     private Victory victoryScript;
+    private GameManager gameScript;
     // Start is called before the first frame update
     void Start()
     {
-        serveScript = GameObject.Find("serve object").GetComponent<Serve>();
-        victoryScript = GameObject.Find("victory object").GetComponent<Victory>();//link to the script Serve.cs to use later
-        playerGoals = 0;
+        serveScript = GameObject.Find("serve object").GetComponent<Serve>();//link to the script Serve.cs to use later
+        gameScript = GameObject.Find("game manager object").GetComponent<GameManager>();
     }
 
     //if the goal box is hit by the ball
@@ -27,11 +26,7 @@ public class playerScores : MonoBehaviour
         if (collider.CompareTag("ball")) //check it is colliding with a ball
         {
             collider.gameObject.SetActive(false); //deactivate the ball until it is moved back to the centre
-            playerGoals += 1;//iterate player's goals
-            if (playerGoals == 7)
-            {
-                victoryScript.NextVictoryScreen();
-            }
+            gameScript.playerScores();//iterate player's goals
             StartCoroutine(DelayedServe(1f, collider)); //serve after a second
         }
     }
