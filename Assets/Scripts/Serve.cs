@@ -23,6 +23,7 @@ public class Serve : MonoBehaviour
         gameScript.ballSpeed = 150f;
         serveball.GetComponent<Ball>().UpdateBallSpeed();
         serveball.GetComponent<Ball>().AddStartingForce(tag);
+        gameScript.bounceStrength = 1f;
     }
 }
 

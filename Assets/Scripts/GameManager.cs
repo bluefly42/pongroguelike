@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] new AudioSource audio;
     //private float BounceBreak = 0.5f;  //Wait 0.5 seconds after we do something to do something again
     //private float BounceIncreaseTime;  //The next time we do something
-    public float bounciness;
+    public float bounceStrength;
 
 
     // Start is called before the first frame update
@@ -33,21 +33,13 @@ public class GameManager : MonoBehaviour
         cpuScoreText.text = cpuScore.ToString();
         ballSpeed = 150f;
         audio.Play(0);
-        //BounceIncreaseTime = Time.time + BounceBreak;
-        //bounciness = 4f;
-        //Debug.Log(bounciness);
+
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        //if (BounceIncreaseTime <= Time.time)
-        //{
-        //    bounciness = bounciness * 1.5f;
-        //    BounceIncreaseTime = Time.time + BounceBreak;
-        //    Debug.Log("bounce increase");
-        //}
 
     }
 
@@ -73,6 +65,17 @@ public class GameManager : MonoBehaviour
         {
             audio.Stop();
             loseScript.LoseScreen();
+        }
+    }
+
+    public void bounce(Collision2D collision)
+    {
+        Ball ball = collision.gameObject.GetComponent<Ball>();
+        if(ball is not null)
+        {
+            Vector2 normal = collision.GetContact(0).normal;
+            ball.AddForce(-normal * this.bounceStrength);
+            bounceStrength += 2.5f;
         }
     }
 
