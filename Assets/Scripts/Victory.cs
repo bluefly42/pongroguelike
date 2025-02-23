@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Victory : MonoBehaviour
 {
     public void NextVictoryScreen()
     {
-        Debug.Log("player wins.");
+        SceneManager.LoadScene("VictoryScreen");
     }
 }

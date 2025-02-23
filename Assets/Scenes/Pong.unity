@@ -1514,8 +1514,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  _rigidbody: {fileID: 0}
-  ball: {fileID: 0}
+  _rigidbody: {fileID: 1597333123}
+  ball: {fileID: 1294762500}
+  gameScript: {fileID: 1620657215}
 --- !u!1 &1606891315
 GameObject:
   m_ObjectHideFlags: 0
@@ -1671,6 +1672,7 @@ MonoBehaviour:
   cpuScoreText: {fileID: 1726998451}
   ballSpeed: 200
   audio: {fileID: 0}
+  bounciness: 0
 --- !u!82 &1620657216
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2016,7 +2018,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  _rigidbody: {fileID: 0}
+  _rigidbody: {fileID: 1675990521}
 --- !u!1 &1726998449
 GameObject:
   m_ObjectHideFlags: 0

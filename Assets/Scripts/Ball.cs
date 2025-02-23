@@ -14,6 +14,11 @@ public class Ball : MonoBehaviour
         ball = GameObject.FindWithTag("ball").GetComponent<Rigidbody2D>(); //assign the ball so the program doesn't freak
         gameScript = GameObject.Find("game manager object").GetComponent<GameManager>();
     }
+    private void Update()
+    {
+        speed = gameScript.ballSpeed;
+        //this.GetComponent<Rigidbody2D>().Material.bounciness = gameScript.bounciness;
+    }
 
     public void AddStartingForce(System.String tag) //AddStartingForce takes the tag of who conceded so it knows who to serve to
     {
@@ -35,5 +40,8 @@ public class Ball : MonoBehaviour
             ball.AddForce(direction * this.speed);
         }
     }
-
+    public void UpdateBallSpeed()
+    {
+        speed = gameScript.ballSpeed;
+    }
 }
