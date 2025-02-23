@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     private Lose loseScript;
     [SerializeField] private TextMeshProUGUI playerScoreText;
     [SerializeField] private TextMeshProUGUI cpuScoreText;
-    public float ballSpeed = 200f;
+    [SerializeField] public float ballSpeed;
     // Start is called before the first frame update
     void Start()
     {
