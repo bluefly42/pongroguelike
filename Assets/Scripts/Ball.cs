@@ -5,6 +5,7 @@ public class Ball : MonoBehaviour
     [SerializeField] public float speed;
     [SerializeField] private Rigidbody2D ball; //moved serving over to another script
     private GameManager gameScript;
+    private Rigidbody2D _rigidbody;
     private void Start()
     {
         speed = gameScript.ballSpeed;
@@ -13,6 +14,7 @@ public class Ball : MonoBehaviour
     {
         ball = GameObject.FindWithTag("ball").GetComponent<Rigidbody2D>(); //assign the ball so the program doesn't freak
         gameScript = GameObject.Find("game manager object").GetComponent<GameManager>();
+        _rigidbody = GetComponent<Rigidbody2D>();
     }
     private void Update()
     {
@@ -42,5 +44,11 @@ public class Ball : MonoBehaviour
     public void UpdateBallSpeed()
     {
         speed = gameScript.ballSpeed;
+    }
+
+    public void AddForce(Vector2 force)
+    {
+        ball = GameObject.FindWithTag("ball").GetComponent<Rigidbody2D>();
+        ball.AddForce(force);
     }
 }
