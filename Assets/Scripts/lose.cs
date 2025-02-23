@@ -6,6 +6,6 @@ public class Lose : MonoBehaviour
 {
     public void LoseScreen()
     {
-
+        Debug.Log("Player loses.");
     }
 }

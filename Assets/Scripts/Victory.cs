@@ -6,6 +6,6 @@ public class Victory : MonoBehaviour
 {
     public void NextVictoryScreen()
     {
-
+        Debug.Log("player wins.");
     }
 }

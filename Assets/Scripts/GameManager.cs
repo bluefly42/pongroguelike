@@ -1,20 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] int playerScore;
     [SerializeField] int cpuScore;
-    private Victory victoryScript;
+    private Victory victoryScript; 
     private Lose loseScript;
+    [SerializeField] private TextMeshProUGUI playerScoreText;
+    [SerializeField] private TextMeshProUGUI cpuScoreText;
+    public float ballSpeed = 200f;
     // Start is called before the first frame update
     void Start()
     {
         playerScore = 0;
         cpuScore = 0;
         victoryScript = GameObject.Find("victory object").GetComponent<Victory>();
-        loseScript = GameObject.Find("lose object").GetComponent<Lose>();
+        loseScript = GameObject.Find("loss object").GetComponent<Lose>();
+        playerScoreText.text = playerScore.ToString();
+        cpuScoreText.text = cpuScore.ToString();
+        ballSpeed = 200f;
     }
 
     // Update is called once per frame
@@ -26,6 +32,7 @@ public class GameManager : MonoBehaviour
     public void playerScores()
     {
         playerScore++;
+        playerScoreText.text = playerScore.ToString();
         if (playerScore == 7)
         {
             victoryScript.NextVictoryScreen();
@@ -34,6 +41,7 @@ public class GameManager : MonoBehaviour
     public void cpuScores()
     {
         cpuScore++;
+        cpuScoreText.text = cpuScore.ToString();
         if (cpuScore == 7)
         {
             loseScript.LoseScreen();
