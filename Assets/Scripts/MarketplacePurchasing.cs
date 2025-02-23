@@ -9,12 +9,13 @@ public class MarketplacePurchasing : MonoBehaviour
     private void Awake()
     {
         button = this.GetComponent<Button>();
+        button.interactable = true;
         button.onClick.AddListener(Button);
-        Debug.Log("Hello");
     }
     public void Button()
     {
-        Debug.Log("button");
+        Debug.Log("test");
+        button.interactable = false;
     }
 
 }
