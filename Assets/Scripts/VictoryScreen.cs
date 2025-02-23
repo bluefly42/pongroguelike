@@ -6,16 +6,17 @@ using UnityEngine.SceneManagement;
 
 public class VictoryScreen : MonoBehaviour
 {
-    public Button button;
+    [SerializeField] public Button button;
     // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
+        button = GameObject.Find("Button").GetComponent<Button>();
         button.gameObject.SetActive(true);
-// button.onClick.NextLevel();
+        button.onClick.AddListener(NextLevel);
     }
 
-    // Update is called once per frame
     private void NextLevel() {
+        Debug.Log("hello");
         button.gameObject.SetActive(false);
         SceneManager.LoadScene("Marketplace");
     }
