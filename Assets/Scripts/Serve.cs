@@ -20,7 +20,7 @@ public class Serve : MonoBehaviour
     {
         serveball.transform.position = new Vector2(0, 0);
         serveball.gameObject.SetActive(true);
-        gameScript.ballSpeed = 250f;
+        gameScript.ballSpeed = 150f;
         serveball.GetComponent<Ball>().UpdateBallSpeed();
         serveball.GetComponent<Ball>().AddStartingForce(tag);
     }
