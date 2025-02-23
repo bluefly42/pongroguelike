@@ -17,7 +17,6 @@ public class Ball : MonoBehaviour
     private void Update()
     {
         speed = gameScript.ballSpeed;
-        //this.GetComponent<Rigidbody2D>().Material.bounciness = gameScript.bounciness;
     }
 
     public void AddStartingForce(System.String tag) //AddStartingForce takes the tag of who conceded so it knows who to serve to
