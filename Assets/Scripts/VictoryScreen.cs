@@ -17,7 +17,7 @@ public class VictoryScreen : MonoBehaviour
 
     private void NextLevel() {
         Debug.Log("hello");
-        button.gameObject.SetActive(false);
+        //button.gameObject.SetActive(true);
         SceneManager.LoadScene("Marketplace");
     }
 }

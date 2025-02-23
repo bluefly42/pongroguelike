@@ -31,11 +31,12 @@ public class GameManager : MonoBehaviour
         loseScript = GameObject.Find("loss object").GetComponent<Lose>();
         playerScoreText.text = playerScore.ToString();
         cpuScoreText.text = cpuScore.ToString();
-        ballSpeed = 150f;
+        ballSpeed = 250f;
         audio.Play(0);
         //BounceIncreaseTime = Time.time + BounceBreak;
         //bounciness = 4f;
         //Debug.Log(bounciness);
+        
     }
 
     // Update is called once per frame
@@ -54,7 +55,7 @@ public class GameManager : MonoBehaviour
     {
         playerScore++;
         playerScoreText.text = playerScore.ToString();
-        ballSpeed = 150f;
+        ballSpeed = 250f;
         //BounceIncreaseTime = Time.time + BounceBreak;
         if (playerScore == 7)
         {
@@ -66,7 +67,7 @@ public class GameManager : MonoBehaviour
     {
         cpuScore++;
         cpuScoreText.text = cpuScore.ToString();
-        ballSpeed = 150f;
+        ballSpeed = 250f;
         //BounceIncreaseTime = Time.time + BounceBreak;
         if (cpuScore == 7)
         {

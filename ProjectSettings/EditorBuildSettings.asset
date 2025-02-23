@@ -8,4 +8,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Pong.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Marketplace.unity
+    guid: 8b927d6095cc53240a1cd3696b35a7a6
+  - enabled: 1
+    path: Assets/Scenes/VictoryScreen.unity
+    guid: c44ba3fcf35e3c547a42db6270ad6b7d
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: 5181e896aedab9d479425b93f6a1c364
   m_configObjects: {}
